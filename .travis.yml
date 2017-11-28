@@ -21,8 +21,6 @@ matrix:
     - php: 5.2
   fast_finish: true
   include:
-    - php: 5.2
-      dist: precise
     - php: 5.3
       dist: precise
 cache:

@@ -9,6 +9,8 @@
 			signature="openssl"
 			key="priv.key"
 			keypassword="${passphrase}"
+			clistub="src/cli.php"
+			webstub="src/web.php"
 		>
 			<fileset dir=".">
 				<include name="*.xml" />

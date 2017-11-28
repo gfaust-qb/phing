@@ -398,13 +398,13 @@ class PharPackageTask
             $phar->setStub(file_get_contents($this->stubPath));
         } else {
             if (!empty($this->cliStubFile)) {
-                $cliStubFile = $this->cliStubFile->getPathWithoutBase($this->baseDirectory);
+                $cliStubFile = $this->normalizePath($this->cliStubFile->getPathWithoutBase($this->baseDirectory));
             } else {
                 $cliStubFile = null;
             }
 
             if (!empty($this->webStubFile)) {
-                $webStubFile = $this->webStubFile->getPathWithoutBase($this->baseDirectory);
+                $webStubFile = $this->normalizePath($this->webStubFile->getPathWithoutBase($this->baseDirectory));
             } else {
                 $webStubFile = null;
             }
@@ -425,5 +425,10 @@ class PharPackageTask
         }
 
         return $phar;
+    }
+
+    private function normalizePath($path)
+    {
+        return str_replace(DIRECTORY_SEPARATOR, '/', $path);
     }
 }
